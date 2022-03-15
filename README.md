@@ -18,15 +18,25 @@ Describe the technologies required to use your project such as programming langu
 
 ## Baseline Results
 
-A Support Vector Machine with default settings for the hyperparameters was used to establish a baseline for model performance. The model was trained with a fast SMA of 4 and a slow SMA of 4 100, respectively as features, and a binary target indicating whether returns were positive or negative based on the features from the prior period.  
+A Support Vector Machine with default settings for the hyperparameters was used to establish a baseline for model performance. The model was trained with three months of data using a fast SMA of 4 and a slow SMA of 100 as features, and a binary target indicating whether returns were positive or negative based on the features from the prior period.  
 
 The baseline accuracy was 55%, just barely better than random. The chart below reflects this. The strategy returns mirror the shape of the actual returns, and are only slightly better.
 
-![baseline_results_plot](images/baseline_results_plot.png)
+![Baseline Results Plot, 3 months](images/baseline_results_plot_3_months.png)
 
 ### Tuned Baseline Results
 
-TLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet purus erat, et vulputate eros consectetur sed. Fusce molestie enim nec tellus luctus finibus. In congue nec ligula eu vulputate. Praesent eget tristique lectus.  
+__Additional Training Data__
+
+Training the model with nine months of data, instead of three months, but keeping all other parameters consistent produced worse results. Accuracy dropped to 53%, and strategy returns lag those of the actual returns for the majority of the test period. This is likely due to the model overfitting to the training data.
+
+![Baseline Results Plot, 9 months](images/baseline_results_plot_12_months.png)  
+
+__Alternate Fast and Slow SMAs__
+
+The training window was reset to three months and the Fast and Slow SMAs were set to 12 and 120, respectively. Accuracy ticked up just slightly to 56%. As with the original parameters, the strategy returns movements mirror those of the actual returns, but with the increased windows the strategy maintains higher cumulative returns for the duration of the backtest.  
+
+![](images/baseline_results_plot_alt_sma_windows.png)
 
 <br>
 
@@ -35,6 +45,10 @@ TLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet purus erat
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet purus erat, et vulputate eros consectetur sed. Fusce molestie enim nec tellus luctus finibus. In congue nec ligula eu vulputate. Praesent eget tristique lectus.  
 
 <br>
+
+## Summary  
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet purus erat, et vulputate eros consectetur sed. Fusce molestie enim nec tellus luctus finibus. In congue nec ligula eu vulputate. Praesent eget tristique lectus. Vestibulum eros ipsum, ultrices interdum vehicula fermentum, molestie vel velit. Aenean tempor sem eu felis commodo, quis molestie sapien cursus. Sed placerat sapien orci, at commodo elit aliquet sed. Vestibulum imperdiet, turpis ultricies auctor sodales, lacus eros commodo tellus, vel sagittis elit libero vitae sem.
 
 ## Contributors
 
