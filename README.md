@@ -1,12 +1,12 @@
 # Vectorized Backtesting
 
-Just after the title, introduce your project by describing attractively what the project is about and what is the main problem that inspires you to create this project or what is the main contribution for the potential user of your project.
+This analysis looks at the performance of models using fast and slow simple moving averages (SMA) as predictors of when to enter and exit a position.
 
 <br>
 
 ## Overview of the Backtest  
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet purus erat, et vulputate eros consectetur sed. Fusce molestie enim nec tellus luctus finibus. In congue nec ligula eu vulputate. Praesent eget tristique lectus. Vestibulum eros ipsum, ultrices interdum vehicula fermentum, molestie vel velit.  
+The performance of the SMA strategy is compared to that of a simple buy-and-hold strategy. The baseline performance of the model-driven strategy is established, then features modification and different models are tested to determine the effectiveness of the strategy.  
 
 <br>
 
@@ -23,7 +23,7 @@ This analysis leverages python 3.7 with the following packages:
 
 ## Baseline Results
 
-A Support Vector Machine (SVM) with default settings for the hyperparameters was used to establish a baseline for model performance. The model was trained with three months of data using a fast SMA of 4 and a slow SMA of 100 as features, and a binary target indicating whether returns were positive or negative based on the features from the prior period.  
+A SVM with default settings for the hyperparameters was used to establish a baseline for model performance. The model was trained with three months of data using a fast SMA of 4 and a slow SMA of 100 as features, and a binary target indicating whether returns were positive or negative based on the features from the prior period.  
 
 The baseline accuracy was 55%, just barely better than random. The chart below reflects this. The strategy returns mirror the shape of the actual returns, and are only slightly better.
 
