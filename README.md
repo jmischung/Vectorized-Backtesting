@@ -12,13 +12,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet purus erat,
 
 ## Technologies
 
-Describe the technologies required to use your project such as programming languages, libraries, frameworks, and operating systems. Be sure to include the specific versions of any critical dependencies that you have used in the stable version of your project.
+This analysis leverages python 3.7 with the following packages:
+
+- [numpy](https://numpy.org/) - For numerical operations  
+- [pandas](https://pandas.pydata.org/) - For analyzing and transforming data   
+- [scikit-learn](https://scikit-learn.org/stable/) - For predictive data analysis  
+- [matplotlib](https://matplotlib.org/) - For visualizing data  
 
 <br>
 
 ## Baseline Results
 
-A Support Vector Machine with default settings for the hyperparameters was used to establish a baseline for model performance. The model was trained with three months of data using a fast SMA of 4 and a slow SMA of 100 as features, and a binary target indicating whether returns were positive or negative based on the features from the prior period.  
+A Support Vector Machine (SVM) with default settings for the hyperparameters was used to establish a baseline for model performance. The model was trained with three months of data using a fast SMA of 4 and a slow SMA of 100 as features, and a binary target indicating whether returns were positive or negative based on the features from the prior period.  
 
 The baseline accuracy was 55%, just barely better than random. The chart below reflects this. The strategy returns mirror the shape of the actual returns, and are only slightly better.
 
@@ -28,27 +33,29 @@ The baseline accuracy was 55%, just barely better than random. The chart below r
 
 __Additional Training Data__
 
-Training the model with nine months of data, instead of three months, but keeping all other parameters consistent produced worse results. Accuracy dropped to 53%, and strategy returns lag those of the actual returns for the majority of the test period. This is likely due to the model overfitting to the training data.
+Training the model with nine months of data, instead of three months, and keeping all other parameters consistent produced worse results. Accuracy dropped to 53%, and strategy returns lag those of the actual returns for the majority of the test period. This is likely due to the model overfitting the training data.
 
 ![Baseline Results Plot, 9 months](images/baseline_results_plot_12_months.png)  
 
 __Alternate Fast and Slow SMAs__
 
-The training window was reset to three months and the Fast and Slow SMAs were set to 12 and 120, respectively. Accuracy ticked up just slightly to 56%. As with the original parameters, the strategy returns movements mirror those of the actual returns, but with the increased windows the strategy maintains higher cumulative returns for the duration of the backtest.  
+The training window was reset to three months and the Fast and Slow SMAs were set to 12 and 120, respectively. Accuracy ticked up just slightly to 56%. As with the original parameters, the strategy returns movements mirror those of the actual returns, but with the increased windows, the strategy maintains higher cumulative returns for the duration of the backtest.  
 
-![](images/baseline_results_plot_alt_sma_windows.png)
+![Baseline Results Plot, 12 & 120 SMA windows](images/baseline_results_plot_alt_sma_windows.png)
 
 <br>
 
 ## Alternative 1 Results  
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet purus erat, et vulputate eros consectetur sed. Fusce molestie enim nec tellus luctus finibus. In congue nec ligula eu vulputate. Praesent eget tristique lectus.  
+The AdaBoost classification model was tested as an alternative to the SVM to determine if better performance could be obtained using a different model. The accuracy remained unchanged with the AdaBoost classifier, 55%. 
+
+![AdaBoost Results Plot](images/adaboost_results_plot.png)  
 
 <br>
 
 ## Summary  
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet purus erat, et vulputate eros consectetur sed. Fusce molestie enim nec tellus luctus finibus. In congue nec ligula eu vulputate. Praesent eget tristique lectus. Vestibulum eros ipsum, ultrices interdum vehicula fermentum, molestie vel velit. Aenean tempor sem eu felis commodo, quis molestie sapien cursus. Sed placerat sapien orci, at commodo elit aliquet sed. Vestibulum imperdiet, turpis ultricies auctor sodales, lacus eros commodo tellus, vel sagittis elit libero vitae sem.
+The baseline performance of 55% accuracy, nor the maximum achieved performance of 56% accuracy, realize the promise of algorithmic trading. Testing minor alterations to the training features and different models suggest that either, or both, better features and feature engineering is required or a different strategy is required to meaningfully improve performance.  
 
 ## Contributors
 
